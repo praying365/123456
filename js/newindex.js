@@ -1,3 +1,4 @@
+$(function(){
 var socket;var AssetExchangeRate;var PairsDecimal={};var Loading=1;$(document).ready(function(){$(".closeBt").click(function(){$(".noticeBar").hide();});$(".searchBt").click(function(){search();});$(document).on("click",".favoriteIco",function(){$(this).toggleClass("favorited");if($(this).hasClass("favorited")){var state=1;}else{var state=0;}
 var p=$(this).attr("data");fav(p,state)
 if($(this).attr("fav")>0){if(state==0){$(this).parent().parent().remove();$(".favorited").each(function(){if($(this).attr("data")==p){$(this).removeClass("favorited");}});}}else{if(state==0){$(".favorited").each(function(){if($(this).attr("fav")==1&&$(this).attr("data")==p){$(this).parent().parent().remove();}
@@ -31,3 +32,6 @@ var ExchangeRate="";function guzhi(num){if(is_null(ExchangeRate)==true){Exchange
 if($("#languageBt").hasClass("cn")){var number=num.toFixed(2);return bccomp(number,0)<=0?"≈￥0.01":("￥"+number);}else{var number=bcdiv(num,ExchangeRate).toFixed(2);return bccomp(number,0)<=0?"≈$0.01":("$"+number);}}
 function charts(){var cnt=$("#pincount").val();if(cnt>0){for(var i=0;i<cnt;i++){name="container"+i;chart(name);}}}
 function chart(name){var chart=null;var symbol=$("#"+name).attr("data");$.getJSON('/index/klines?symbol='+symbol,function(data){chart=Highcharts.chart(name,{credits:{enabled:false},style:{backgroundColor:"#ebebeb",spacingLeft:0,marginLeft:0,},chart:{zoomType:'x'},title:{text:''},subtitle:{text:document.ontouchstart===undefined?'':''},margin:[0,0,0,0],xAxis:{labels:{enabled:false},visible:false,tickWidth:0,lineWidth:0,lineColor:'#FFFFFF',},yAxis:{labels:{enabled:false},visible:false,gridLineWidth:0,lineColor:'#FFFFFF',},tooltip:{dateTimeLabelFormats:{millisecond:'%H:%M:%S.%L',second:'%H:%M:%S',minute:'%H:%M',hour:'%H:%M',day:'%Y-%m-%d',week:'%m-%d',month:'%Y-%m',year:'%Y'}},legend:{enabled:false},plotOptions:{area:{fillColor:{linearGradient:{x1:0,y1:0,x2:0,y2:1},stops:[[0,'#FEFBF5'],[1,Highcharts.Color('#FEFBF5').setOpacity(1).get('rgba')]]},marker:{enabled:false,},lineWidth:1,lineColor:'#F8E9CE',states:{hover:{lineWidth:1}},threshold:null}},series:[{type:'area',name:'',data:data}]});});}
+
+
+})

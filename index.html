@@ -1,0 +1,1084 @@
+
+<!doctype html>
+<html>
+<head>
+<link href="css/kkcoinIndexStyle.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="author" content="chief">
+<meta name="description" content="全息去中心化数字资产交换平台 exchange">
+<meta name="keywords" content="全息去中心化数字资产交换平台 exchange btc eth">
+<meta name="csrf-token" content="zBAd25qg1Z6NWjJAD2YHE4q97CzFpA9p8ti3VSsQ">
+<title> kkcoin </title>
+<link href="css/kkcoinStyle.css" rel="stylesheet" type="text/css">
+<link href="css/reg_loginStyle.css" rel="stylesheet" type="text/css">
+<link href="css/common.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/layer.js"></script>
+<script type="text/javascript" src="js/zh-CN.js"></script>
+<script type="text/javascript" src="js/kkcommon.js"></script> <style type="text/css">
+        .marketsTable table td{cursor:default;}
+        .marketsTable td a:hover{color:#e8b342;}
+        .gold_border{border:1px solid #e8b342;}
+        .wrapper{display: none;}
+        .noticeBar ul li a:link{color:#999999;}
+        .noticeBar ul li a:visited{color:#999999;}
+        .noticeBar ul li a:hover{color:#ffffff;}
+        .tl{text-align:left;}
+        .tc{text-align:center;}
+        .tr{text-align:right;}
+        .sVol .vol{display:inline-block;padding-right:5px;}
+        .sVol_hr{display:inline-block;padding:0px 5px;}
+        .wrapMain .marketsTable tr td{cursor:pointer;}
+    </style>
+</head>
+<link rel="stylesheet" href="css/loading.css">
+<div id="loading" class="loading">
+<div class="loading_table">
+<div class="sk-wave">
+<div class="sk-rect sk-rect1"></div>
+<div class="sk-rect sk-rect2"></div>
+<div class="sk-rect sk-rect3"></div>
+<div class="sk-rect sk-rect4"></div>
+<div class="sk-rect sk-rect5"></div>
+</div>
+</div>
+</div>
+<body>
+<div class="wrapper">
+<div class="header">
+<a href="index.html"><h1 class="logo">全息数字交易平台</h1></a>
+<ul class="navBar">
+<li><a href="/trade">
+交易中心<i></i></a></li>
+<li><a href="" target="_blank">
+帮助中心<i></i></a></li>
+<li><a href="/coin/up">
+上币申请<i></i></a></li>
+</ul>
+<div class=" cn " id="languageBt">
+<span class="ico icoWorld"></span>
+<span class="language">
+中文 </span>
+<span class="ico icoLanArr"></span>
+<ul class="languageSwitch">
+<li class="en" onclick="javascript:setLang('en');">English</li>
+</ul>
+</div>
+
+<div class="userStatus">
+<span class="ico userIco"></span><a href="">登录</a> / <a href="">注册</a>
+</div>
+
+</div>
+
+<input type="hidden" id="ws_url" value="wss://api.kkcoin.com/ws/" />
+<div class="focusBar" style="overflow: hidden;">
+<div class="pagination"> </div>
+<ul class="focusList">
+<li style="display: block; background-image: url(img/ping1.jpg);">
+<a href="" target="_blank" class="focusLink">春雷计划第一波</a>
+</li>
+<li style="display: block; background-image: url(img/1h.jpg);">
+<a href="" target="_blank" class="focusLink">LIGHT光链登录kkcoin</a>
+</li>
+<li style="display: block; background-image: url(img/03.jpg);">
+<a href="" target="_blank" class="focusLink">共赢区块链资产交易平台</a>
+</li>
+<!--<li style="display: block; background-image: url(https://kkcoin.s3.ap-southeast-1.amazonaws.com/images/7fca2abf6bcd5ec0db7fdba7c84eda03.jpg);">
+<a href="" target="_blank" class="focusLink">0上币费</a>
+</li>
+<li style="display: block; background-image: url(https://kkcoin.s3.ap-southeast-1.amazonaws.com/images/376016f6d1d1a205ca066b3e81a8c48d.jpg);">
+<a href="" target="_blank" class="focusLink">1小时上币</a>
+</li>
+<li style="display: block; background-image: url(https://kkcoin.s3.ap-southeast-1.amazonaws.com/images/bf57639e3599fe7a213a43486ee88e5e.png);">
+<a href="" target="_blank" class="focusLink">SGC游戏界的以太坊</a>
+</li>-->
+</ul>
+<div class="noticeBar">
+<ul>
+<li class="tl"><a href="" target="_blank">全息每周公告（2018-03-12）</a></li>
+<li class="tc"><a href="" target="_blank">全息支持EOS主网映射公告 （2018-03-13）</a></li>
+<li class="tr"><a href="" target="_blank">全息维护公告（2018-03-13）</a></li>
+</ul>
+<div class="operation">
+<a href="javascript:void(0)" class="ico closeBt">CLOSE</a>
+</div>
+</div>
+</div>
+
+<div class="hotMarketsBar">
+<div class="wrapMain">
+<ul class="hotMarkets">
+<input type="hidden" name="pincount" id="pincount" value="5" />
+<div style="position:relative;float:left">
+<div style="position: relative">
+<div id="container0" data="KK_ETH" style="width:240px;height:110px">
+</div>
+<li style="position: absolute;left:0;top:0;">
+<a href="/trade?symbol=KK_ETH">
+<div class="item" style="width:215px;margin-left:6px;">
+<div class="tit">KK/ETH</div>
+<p class="priceChange asc change_top_KK_ETH">0%</p>
+<div class="priceInfo">
+<p><span class="last_price font18 fb last_price_KK_ETH">0.00000000</span> <span><span class="price cny_price_KK_ETH" rate="3418.00000000" pairs="KK_ETH"></span></span></p>
+<p class="dealPrice">成交额: <span class="volume_KK_ETH">0.00</span> ETH </p>
+</div>
+</div>
+</a>
+</li>
+</div>
+</div>
+<div style="position:relative;float:left">
+<div style="position: relative">
+<div id="container1" data="BAI_ETH" style="width:240px;height:110px">
+</div>
+ <li style="position: absolute;left:0;top:0;">
+<a href="/trade?symbol=BAI_ETH">
+<div class="item" style="width:215px;margin-left:6px;">
+<div class="tit">BAI/ETH</div>
+<p class="priceChange asc change_top_BAI_ETH">0%</p>
+<div class="priceInfo">
+<p><span class="last_price font18 fb last_price_BAI_ETH">0.00000000</span> <span><span class="price cny_price_BAI_ETH" rate="3418.00000000" pairs="BAI_ETH"></span></span></p>
+<p class="dealPrice">成交额: <span class="volume_BAI_ETH">0.00</span> ETH </p>
+</div>
+</div>
+</a>
+</li>
+</div>
+</div>
+<div style="position:relative;float:left">
+<div style="position: relative">
+<div id="container2" data="EOS_ETH" style="width:240px;height:110px">
+</div>
+<li style="position: absolute;left:0;top:0;">
+<a href="/trade?symbol=EOS_ETH">
+<div class="item" style="width:215px;margin-left:6px;">
+<div class="tit">EOS/ETH</div>
+<p class="priceChange asc change_top_EOS_ETH">0%</p>
+<div class="priceInfo">
+<p><span class="last_price font18 fb last_price_EOS_ETH">0.000000</span> <span><span class="price cny_price_EOS_ETH" rate="3418.00000000" pairs="EOS_ETH"></span></span></p>
+<p class="dealPrice">成交额: <span class="volume_EOS_ETH">0.00</span> ETH </p>
+</div>
+</div>
+</a>
+</li>
+</div>
+</div>
+<div style="position:relative;float:left">
+<div style="position: relative">
+<div id="container3" data="BTC_bitCNY" style="width:240px;height:110px">
+</div>
+<li style="position: absolute;left:0;top:0;">
+<a href="/trade?symbol=BTC_bitCNY">
+<div class="item" style="width:215px;margin-left:6px;">
+<div class="tit">BTC/bitCNY</div>
+<p class="priceChange asc change_top_BTC_bitCNY">0%</p>
+<div class="priceInfo">
+<p><span class="last_price font18 fb last_price_BTC_bitCNY">0</span> <span><span class="price cny_price_BTC_bitCNY" rate="1" pairs="BTC_bitCNY"></span></span></p>
+<p class="dealPrice">成交额: <span class="volume_BTC_bitCNY">0.00</span> bitCNY </p>
+</div>
+</div>
+</a>
+</li>
+</div>
+</div>
+<div style="position:relative;float:left">
+<div style="position: relative">
+<div id="container4" data="ETH_bitCNY" style="width:240px;height:110px">
+</div>
+<li style="position: absolute;left:0;top:0;">
+<a href="/trade?symbol=ETH_bitCNY">
+<div class="item" style="width:215px;margin-left:6px;">
+<div class="tit">ETH/bitCNY</div>
+<p class="priceChange asc change_top_ETH_bitCNY">0%</p>
+<div class="priceInfo">
+ <p><span class="last_price font18 fb last_price_ETH_bitCNY">0.00</span> <span><span class="price cny_price_ETH_bitCNY" rate="1" pairs="ETH_bitCNY"></span></span></p>
+<p class="dealPrice">成交额: <span class="volume_ETH_bitCNY">0.00</span> bitCNY </p>
+</div>
+</div>
+</a>
+</li>
+</div>
+</div>
+</ul>
+</div>
+<div class="cl"></div>
+</div>
+
+<div class="wrapMain tabs">
+<div class="marketsTop">
+<ul class="t_menu">
+<li>自选</li>
+<li class="cur">ETH市场</li>
+<li>bitCNY市场</li>
+<li>USC市场</li>
+<li>创新市场</li>
+</ul>
+<div class="searchBox" style="float:left;margin:3px 0px 0px 10px;width:158px;">
+<a href="javascript:void(0)" class="ico searchBt">search</a>
+<div class="input">
+<input type="text" placeholder="" class="searchInput" oninput="search();" onpropertychange="search();" />
+</div>
+</div>
+</div>
+
+<div class="marketsTable">
+<div class="favoriteList t_cont" style="display: none;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr class="theader" id="fav_th">
+<th width="4%"><span class="favoriteIco"></span></th>
+<th width="8%">市场</th>
+<th width="25%">最新价</th>
+<th width="15%">24h涨跌</th>
+<th width="16%">24h最高价 </th>
+<th width="16%">24h最低价</th>
+<th width="16%">24h成交量</th>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="t_cont">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr class="theader">
+<th width="4%"><span class="favoriteIco"></span></th>
+<th width="8%">市场</th>
+<th width="25%">最新价</th>
+<th width="15%">24h涨跌</th>
+<th width="16%">24h最高价 </th>
+<th width="16%">24h最低价</th>
+<th width="16%">24h成交量</th>
+</tr>
+<tr data="KK/ETH">
+<td>
+<span class="ico favoriteIco" data="1"></span>
+</td>
+<td><a href="/trade?symbol=KK_ETH">KK/ETH</a></td>
+<td>
+<span class="last_price last_price_KK_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_KK_ETH" rate="3418.00000000" pairs="KK_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_KK_ETH">0%</span>
+</td>
+<td class="high_price_KK_ETH">0.00000000</td>
+<td class="low_price_KK_ETH">0.00000000</td>
+<td><span class="volume_KK_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="BAI/ETH">
+ <td>
+<span class="ico favoriteIco" data="46"></span>
+</td>
+<td><a href="/trade?symbol=BAI_ETH">BAI/ETH</a></td>
+<td>
+<span class="last_price last_price_BAI_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_BAI_ETH" rate="3418.00000000" pairs="BAI_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_BAI_ETH">0%</span>
+</td>
+<td class="high_price_BAI_ETH">0.00000000</td>
+<td class="low_price_BAI_ETH">0.00000000</td>
+<td><span class="volume_BAI_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="PRA/ETH">
+<td>
+<span class="ico favoriteIco" data="44"></span>
+</td>
+<td><a href="/trade?symbol=PRA_ETH">PRA/ETH</a></td>
+<td>
+<span class="last_price last_price_PRA_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_PRA_ETH" rate="3418.00000000" pairs="PRA_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_PRA_ETH">0%</span>
+</td>
+<td class="high_price_PRA_ETH">0.000000</td>
+<td class="low_price_PRA_ETH">0.000000</td>
+<td><span class="volume_PRA_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="MUSK/ETH">
+<td>
+<span class="ico favoriteIco" data="41"></span>
+</td>
+<td><a href="/trade?symbol=MUSK_ETH">MUSK/ETH</a></td>
+<td>
+<span class="last_price last_price_MUSK_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_MUSK_ETH" rate="3418.00000000" pairs="MUSK_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_MUSK_ETH">0%</span>
+</td>
+<td class="high_price_MUSK_ETH">0.00000000</td>
+<td class="low_price_MUSK_ETH">0.00000000</td>
+<td><span class="volume_MUSK_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="KCASH/ETH">
+<td>
+<span class="ico favoriteIco" data="34"></span>
+</td>
+<td><a href="/trade?symbol=KCASH_ETH">KCASH/ETH</a></td>
+<td>
+<span class="last_price last_price_KCASH_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_KCASH_ETH" rate="3418.00000000" pairs="KCASH_ETH"></span></span>
+</td>
+ <td>
+<span class="gray change_rate_KCASH_ETH">0%</span>
+</td>
+<td class="high_price_KCASH_ETH">0.00000000</td>
+<td class="low_price_KCASH_ETH">0.00000000</td>
+<td><span class="volume_KCASH_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="LET/ETH">
+<td>
+<span class="ico favoriteIco" data="32"></span>
+</td>
+<td><a href="/trade?symbol=LET_ETH">LET/ETH</a></td>
+<td>
+<span class="last_price last_price_LET_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_LET_ETH" rate="3418.00000000" pairs="LET_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_LET_ETH">0%</span>
+</td>
+<td class="high_price_LET_ETH">0.00000000</td>
+<td class="low_price_LET_ETH">0.00000000</td>
+<td><span class="volume_LET_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="SSP/ETH">
+<td>
+<span class="ico favoriteIco" data="31"></span>
+</td>
+<td><a href="/trade?symbol=SSP_ETH">SSP/ETH</a></td>
+<td>
+<span class="last_price last_price_SSP_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_SSP_ETH" rate="3418.00000000" pairs="SSP_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_SSP_ETH">0%</span>
+</td>
+<td class="high_price_SSP_ETH">0.00000000</td>
+<td class="low_price_SSP_ETH">0.00000000</td>
+<td><span class="volume_SSP_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="CPU/ETH">
+<td>
+<span class="ico favoriteIco" data="30"></span>
+</td>
+<td><a href="/trade?symbol=CPU_ETH">CPU/ETH</a></td>
+<td>
+<span class="last_price last_price_CPU_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_CPU_ETH" rate="3418.00000000" pairs="CPU_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_CPU_ETH">0%</span>
+</td>
+<td class="high_price_CPU_ETH">0.00000000</td>
+<td class="low_price_CPU_ETH">0.00000000</td>
+<td><span class="volume_CPU_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="SGCC/ETH">
+<td>
+<span class="ico favoriteIco" data="29"></span>
+</td>
+<td><a href="/trade?symbol=SGCC_ETH">SGCC/ETH</a></td>
+<td>
+<span class="last_price last_price_SGCC_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_SGCC_ETH" rate="3418.00000000" pairs="SGCC_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_SGCC_ETH">0%</span>
+</td>
+<td class="high_price_SGCC_ETH">0.00000000</td>
+<td class="low_price_SGCC_ETH">0.00000000</td>
+<td><span class="volume_SGCC_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="CAF/ETH">
+<td>
+<span class="ico favoriteIco" data="28"></span>
+</td>
+<td><a href="/trade?symbol=CAF_ETH">CAF/ETH</a></td>
+<td>
+<span class="last_price last_price_CAF_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_CAF_ETH" rate="3418.00000000" pairs="CAF_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_CAF_ETH">0%</span>
+</td>
+<td class="high_price_CAF_ETH">0.00000000</td>
+<td class="low_price_CAF_ETH">0.00000000</td>
+<td><span class="volume_CAF_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="HOT/ETH">
+<td>
+<span class="ico favoriteIco" data="27"></span>
+</td>
+<td><a href="/trade?symbol=HOT_ETH">HOT/ETH</a></td>
+<td>
+<span class="last_price last_price_HOT_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_HOT_ETH" rate="3418.00000000" pairs="HOT_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_HOT_ETH">0%</span>
+</td>
+<td class="high_price_HOT_ETH">0.00000000</td>
+<td class="low_price_HOT_ETH">0.00000000</td>
+<td><span class="volume_HOT_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="MTN/ETH">
+<td>
+<span class="ico favoriteIco" data="26"></span>
+</td>
+<td><a href="/trade?symbol=MTN_ETH">MTN/ETH</a></td>
+<td>
+<span class="last_price last_price_MTN_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_MTN_ETH" rate="3418.00000000" pairs="MTN_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_MTN_ETH">0%</span>
+ </td>
+<td class="high_price_MTN_ETH">0.000000</td>
+<td class="low_price_MTN_ETH">0.000000</td>
+<td><span class="volume_MTN_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="CANDY/ETH">
+<td>
+<span class="ico favoriteIco" data="25"></span>
+</td>
+<td><a href="/trade?symbol=CANDY_ETH">CANDY/ETH</a></td>
+<td>
+<span class="last_price last_price_CANDY_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_CANDY_ETH" rate="3418.00000000" pairs="CANDY_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_CANDY_ETH">0%</span>
+</td>
+<td class="high_price_CANDY_ETH">0.00000000</td>
+<td class="low_price_CANDY_ETH">0.00000000</td>
+<td><span class="volume_CANDY_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="PRS/ETH">
+<td>
+<span class="ico favoriteIco" data="24"></span>
+</td>
+<td><a href="/trade?symbol=PRS_ETH">PRS/ETH</a></td>
+<td>
+<span class="last_price last_price_PRS_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_PRS_ETH" rate="3418.00000000" pairs="PRS_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_PRS_ETH">0%</span>
+</td>
+<td class="high_price_PRS_ETH">0.000000</td>
+<td class="low_price_PRS_ETH">0.000000</td>
+<td><span class="volume_PRS_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="BIG/ETH">
+<td>
+<span class="ico favoriteIco" data="23"></span>
+</td>
+<td><a href="/trade?symbol=BIG_ETH">BIG/ETH</a></td>
+<td>
+<span class="last_price last_price_BIG_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_BIG_ETH" rate="3418.00000000" pairs="BIG_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_BIG_ETH">0%</span>
+</td>
+<td class="high_price_BIG_ETH">0.000000</td>
+<td class="low_price_BIG_ETH">0.000000</td>
+<td><span class="volume_BIG_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="XIN/ETH">
+<td>
+<span class="ico favoriteIco" data="22"></span>
+</td>
+<td><a href="/trade?symbol=XIN_ETH">XIN/ETH</a></td>
+<td>
+<span class="last_price last_price_XIN_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_XIN_ETH" rate="3418.00000000" pairs="XIN_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_XIN_ETH">0%</span>
+</td>
+<td class="high_price_XIN_ETH">0.000000</td>
+<td class="low_price_XIN_ETH">0.000000</td>
+<td><span class="volume_XIN_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="GTO/ETH">
+<td>
+<span class="ico favoriteIco" data="20"></span>
+</td>
+<td><a href="/trade?symbol=GTO_ETH">GTO/ETH</a></td>
+<td>
+<span class="last_price last_price_GTO_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_GTO_ETH" rate="3418.00000000" pairs="GTO_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_GTO_ETH">0%</span>
+</td>
+<td class="high_price_GTO_ETH">0.000000</td>
+<td class="low_price_GTO_ETH">0.000000</td>
+<td><span class="volume_GTO_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="EOS/ETH">
+<td>
+<span class="ico favoriteIco" data="2"></span>
+</td>
+<td><a href="/trade?symbol=EOS_ETH">EOS/ETH</a></td>
+<td>
+<span class="last_price last_price_EOS_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_EOS_ETH" rate="3418.00000000" pairs="EOS_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_EOS_ETH">0%</span>
+</td>
+<td class="high_price_EOS_ETH">0.000000</td>
+<td class="low_price_EOS_ETH">0.000000</td>
+<td><span class="volume_EOS_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="LIGHT/ETH">
+<td>
+<span class="ico favoriteIco" data="45"></span>
+</td>
+<td><a href="/trade?symbol=LIGHT_ETH">LIGHT/ETH</a></td>
+<td>
+<span class="last_price last_price_LIGHT_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_LIGHT_ETH" rate="3418.00000000" pairs="LIGHT_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_LIGHT_ETH">0%</span>
+</td>
+<td class="high_price_LIGHT_ETH">0.00000000</td>
+<td class="low_price_LIGHT_ETH">0.00000000</td>
+<td><span class="volume_LIGHT_ETH">0.00</span> ETH</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="t_cont" style="display:none;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr class="theader">
+<th width="4%"><span class="favoriteIco"></span></th>
+<th width="8%">市场</th>
+<th width="25%">最新价</th>
+<th width="15%">24h涨跌</th>
+<th width="16%">24h最高价 </th>
+<th width="16%">24h最低价</th>
+<th width="16%">24h成交量</th>
+</tr>
+<tr data="LTC/bitCNY">
+<td>
+<span class="ico favoriteIco" data="6"></span>
+</td>
+<td><a href="/trade?symbol=LTC_bitCNY">LTC/bitCNY</a></td>
+<td>
+<span class="last_price last_price_LTC_bitCNY">0.00</span>
+<span class="gray">/ <span class="price cny_price_LTC_bitCNY" rate="1" pairs="LTC_bitCNY"></span></span>
+</td>
+<td>
+<span class="gray change_rate_LTC_bitCNY">0%</span>
+</td>
+<td class="high_price_LTC_bitCNY">0.00</td>
+<td class="low_price_LTC_bitCNY">0.00</td>
+<td><span class="volume_LTC_bitCNY">0.00</span> bitCNY</td>
+</tr>
+<tr data="ETH/bitCNY">
+<td>
+<span class="ico favoriteIco" data="5"></span>
+</td>
+<td><a href="/trade?symbol=ETH_bitCNY">ETH/bitCNY</a></td>
+<td>
+<span class="last_price last_price_ETH_bitCNY">0.00</span>
+<span class="gray">/ <span class="price cny_price_ETH_bitCNY" rate="1" pairs="ETH_bitCNY"></span></span>
+</td>
+<td>
+<span class="gray change_rate_ETH_bitCNY">0%</span>
+</td>
+<td class="high_price_ETH_bitCNY">0.00</td>
+<td class="low_price_ETH_bitCNY">0.00</td>
+<td><span class="volume_ETH_bitCNY">0.00</span> bitCNY</td>
+</tr>
+<tr data="BTC/bitCNY">
+<td>
+<span class="ico favoriteIco" data="4"></span>
+</td>
+<td><a href="/trade?symbol=BTC_bitCNY">BTC/bitCNY</a></td>
+<td>
+<span class="last_price last_price_BTC_bitCNY">0</span>
+<span class="gray">/ <span class="price cny_price_BTC_bitCNY" rate="1" pairs="BTC_bitCNY"></span></span>
+</td>
+<td>
+<span class="gray change_rate_BTC_bitCNY">0%</span>
+ </td>
+<td class="high_price_BTC_bitCNY">0</td>
+<td class="low_price_BTC_bitCNY">0</td>
+<td><span class="volume_BTC_bitCNY">0.00</span> bitCNY</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="t_cont" style="display:none;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr class="theader">
+<th width="4%"><span class="favoriteIco"></span></th>
+<th width="8%">市场</th>
+<th width="25%">最新价</th>
+<th width="15%">24h涨跌</th>
+<th width="16%">24h最高价 </th>
+<th width="16%">24h最低价</th>
+<th width="16%">24h成交量</th>
+</tr>
+<tr data="ETH/USC">
+<td>
+<span class="ico favoriteIco" data="39"></span>
+</td>
+<td><a href="/trade?symbol=ETH_USC">ETH/USC</a></td>
+<td>
+<span class="last_price last_price_ETH_USC">0.00</span>
+<span class="gray">/ <span class="price cny_price_ETH_USC" rate="6.3176" pairs="ETH_USC"></span></span>
+</td>
+<td>
+<span class="gray change_rate_ETH_USC">0%</span>
+</td>
+<td class="high_price_ETH_USC">0.00</td>
+<td class="low_price_ETH_USC">0.00</td>
+<td><span class="volume_ETH_USC">0.00</span> USC</td>
+</tr>
+<tr data="KCASH/USC">
+<td>
+<span class="ico favoriteIco" data="38"></span>
+</td>
+<td><a href="/trade?symbol=KCASH_USC">KCASH/USC</a></td>
+<td>
+<span class="last_price last_price_KCASH_USC">0.0000</span>
+<span class="gray">/ <span class="price cny_price_KCASH_USC" rate="6.3176" pairs="KCASH_USC"></span></span>
+</td>
+<td>
+<span class="gray change_rate_KCASH_USC">0%</span>
+</td>
+<td class="high_price_KCASH_USC">0.0000</td>
+<td class="low_price_KCASH_USC">0.0000</td>
+<td><span class="volume_KCASH_USC">0.00</span> USC</td>
+</tr>
+<tr data="LET/USC">
+<td>
+<span class="ico favoriteIco" data="37"></span>
+</td>
+<td><a href="/trade?symbol=LET_USC">LET/USC</a></td>
+<td>
+<span class="last_price last_price_LET_USC">0.0000</span>
+<span class="gray">/ <span class="price cny_price_LET_USC" rate="6.3176" pairs="LET_USC"></span></span>
+</td>
+ <td>
+<span class="gray change_rate_LET_USC">0%</span>
+</td>
+<td class="high_price_LET_USC">0.0000</td>
+<td class="low_price_LET_USC">0.0000</td>
+<td><span class="volume_LET_USC">0.00</span> USC</td>
+</tr>
+<tr data="SSP/USC">
+<td>
+<span class="ico favoriteIco" data="36"></span>
+</td>
+<td><a href="/trade?symbol=SSP_USC">SSP/USC</a></td>
+<td>
+<span class="last_price last_price_SSP_USC">0.0000</span>
+<span class="gray">/ <span class="price cny_price_SSP_USC" rate="6.3176" pairs="SSP_USC"></span></span>
+</td>
+<td>
+<span class="gray change_rate_SSP_USC">0%</span>
+</td>
+<td class="high_price_SSP_USC">0.0000</td>
+<td class="low_price_SSP_USC">0.0000</td>
+<td><span class="volume_SSP_USC">0.00</span> USC</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="t_cont" style="display: none;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr class="theader">
+<th width="4%"><span class="favoriteIco"></span></th>
+<th width="8%">市场</th>
+<th width="25%">最新价</th>
+<th width="15%">24h涨跌</th>
+<th width="16%">24h最高价 </th>
+<th width="16%">24h最低价</th>
+<th width="16%">24h成交量</th>
+</tr>
+<tr data="NXO/ETH">
+<td>
+<span class="ico favoriteIco" data="51"></span>
+</td>
+<td><a href="/trade?symbol=NXO_ETH">NXO/ETH</a></td>
+<td>
+<span class="last_price last_price_NXO_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_NXO_ETH" rate="3418.00000000" pairs="NXO_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_NXO_ETH">0%</span>
+</td>
+<td class="high_price_NXO_ETH">0.00000000</td>
+<td class="low_price_NXO_ETH">0.00000000</td>
+<td><span class="volume_NXO_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="BCO/ETH">
+<td>
+<span class="ico favoriteIco" data="50"></span>
+</td>
+<td><a href="/trade?symbol=BCO_ETH">BCO/ETH</a></td>
+<td>
+<span class="last_price last_price_BCO_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_BCO_ETH" rate="3418.00000000" pairs="BCO_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_BCO_ETH">0%</span>
+</td>
+<td class="high_price_BCO_ETH">0.00000000</td>
+ <td class="low_price_BCO_ETH">0.00000000</td>
+<td><span class="volume_BCO_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="SRNT/ETH">
+<td>
+<span class="ico favoriteIco" data="49"></span>
+</td>
+<td><a href="/trade?symbol=SRNT_ETH">SRNT/ETH</a></td>
+<td>
+<span class="last_price last_price_SRNT_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_SRNT_ETH" rate="3418.00000000" pairs="SRNT_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_SRNT_ETH">0%</span>
+</td>
+<td class="high_price_SRNT_ETH">0.00000000</td>
+<td class="low_price_SRNT_ETH">0.00000000</td>
+<td><span class="volume_SRNT_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="ATOC/ETH">
+<td>
+<span class="ico favoriteIco" data="48"></span>
+</td>
+<td><a href="/trade?symbol=ATOC_ETH">ATOC/ETH</a></td>
+<td>
+<span class="last_price last_price_ATOC_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_ATOC_ETH" rate="3418.00000000" pairs="ATOC_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_ATOC_ETH">0%</span>
+</td>
+<td class="high_price_ATOC_ETH">0.00000000</td>
+<td class="low_price_ATOC_ETH">0.00000000</td>
+<td><span class="volume_ATOC_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="LGC/ETH">
+<td>
+<span class="ico favoriteIco" data="47"></span>
+</td>
+<td><a href="/trade?symbol=LGC_ETH">LGC/ETH</a></td>
+<td>
+<span class="last_price last_price_LGC_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_LGC_ETH" rate="3418.00000000" pairs="LGC_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_LGC_ETH">0%</span>
+</td>
+<td class="high_price_LGC_ETH">0.00000000</td>
+<td class="low_price_LGC_ETH">0.00000000</td>
+<td><span class="volume_LGC_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="ICC/ETH">
+<td>
+<span class="ico favoriteIco" data="43"></span>
+</td>
+<td><a href="/trade?symbol=ICC_ETH">ICC/ETH</a></td>
+<td>
+<span class="last_price last_price_ICC_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_ICC_ETH" rate="3418.00000000" pairs="ICC_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_ICC_ETH">0%</span>
+</td>
+<td class="high_price_ICC_ETH">0.00000000</td>
+<td class="low_price_ICC_ETH">0.00000000</td>
+<td><span class="volume_ICC_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="LZL/ETH">
+<td>
+<span class="ico favoriteIco" data="42"></span>
+</td>
+<td><a href="/trade?symbol=LZL_ETH">LZL/ETH</a></td>
+<td>
+<span class="last_price last_price_LZL_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_LZL_ETH" rate="3418.00000000" pairs="LZL_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_LZL_ETH">0%</span>
+</td>
+<td class="high_price_LZL_ETH">0.00000000</td>
+<td class="low_price_LZL_ETH">0.00000000</td>
+<td><span class="volume_LZL_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="RED/ETH">
+<td>
+<span class="ico favoriteIco" data="40"></span>
+</td>
+<td><a href="/trade?symbol=RED_ETH">RED/ETH</a></td>
+<td>
+<span class="last_price last_price_RED_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_RED_ETH" rate="3418.00000000" pairs="RED_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_RED_ETH">0%</span>
+</td>
+<td class="high_price_RED_ETH">0.00000000</td>
+<td class="low_price_RED_ETH">0.00000000</td>
+<td><span class="volume_RED_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="VCA/USC">
+<td>
+<span class="ico favoriteIco" data="35"></span>
+</td>
+<td><a href="/trade?symbol=VCA_USC">VCA/USC</a></td>
+<td>
+<span class="last_price last_price_VCA_USC">0.0000</span>
+<span class="gray">/ <span class="price cny_price_VCA_USC" rate="6.3176" pairs="VCA_USC"></span></span>
+</td>
+<td>
+<span class="gray change_rate_VCA_USC">0%</span>
+</td>
+<td class="high_price_VCA_USC">0.0000</td>
+<td class="low_price_VCA_USC">0.0000</td>
+<td><span class="volume_VCA_USC">0.00</span> USC</td>
+</tr>
+<tr data="VCA/ETH">
+<td>
+<span class="ico favoriteIco" data="33"></span>
+</td>
+<td><a href="/trade?symbol=VCA_ETH">VCA/ETH</a></td>
+<td>
+<span class="last_price last_price_VCA_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_VCA_ETH" rate="3418.00000000" pairs="VCA_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_VCA_ETH">0%</span>
+</td>
+<td class="high_price_VCA_ETH">0.00000000</td>
+<td class="low_price_VCA_ETH">0.00000000</td>
+<td><span class="volume_VCA_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="CREDO/ETH">
+<td>
+ <span class="ico favoriteIco" data="21"></span>
+</td>
+<td><a href="/trade?symbol=CREDO_ETH">CREDO/ETH</a></td>
+<td>
+<span class="last_price last_price_CREDO_ETH">0.00000000</span>
+<span class="gray">/ <span class="price cny_price_CREDO_ETH" rate="3418.00000000" pairs="CREDO_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_CREDO_ETH">0%</span>
+</td>
+<td class="high_price_CREDO_ETH">0.00000000</td>
+<td class="low_price_CREDO_ETH">0.00000000</td>
+<td><span class="volume_CREDO_ETH">0.00</span> ETH</td>
+</tr>
+<tr data="PETS/ETH">
+<td>
+<span class="ico favoriteIco" data="3"></span>
+</td>
+<td><a href="/trade?symbol=PETS_ETH">PETS/ETH</a></td>
+<td>
+<span class="last_price last_price_PETS_ETH">0.000000</span>
+<span class="gray">/ <span class="price cny_price_PETS_ETH" rate="3418.00000000" pairs="PETS_ETH"></span></span>
+</td>
+<td>
+<span class="gray change_rate_PETS_ETH">0%</span>
+</td>
+<td class="high_price_PETS_ETH">0.000000</td>
+<td class="low_price_PETS_ETH">0.000000</td>
+<td><span class="volume_PETS_ETH">0.00</span> ETH</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+<div class="hide">
+<input type="hidden" id="exchange_rate" value="6.3176" />
+<input type="hidden" id="asset_exchange_rate" value="{&quot;BTC&quot;:[],&quot;ETH&quot;:{&quot;KK&quot;:&quot;0.00000536&quot;,&quot;EOS&quot;:&quot;0.00836600&quot;,&quot;PETS&quot;:&quot;0.00008000&quot;,&quot;FAIR&quot;:0,&quot;PLC&quot;:0,&quot;TIO&quot;:0,&quot;AAC&quot;:0,&quot;BIGE&quot;:0,&quot;BMB&quot;:0,&quot;COT&quot;:0,&quot;CPC&quot;:0,&quot;IBC&quot;:0,&quot;MVC&quot;:0,&quot;Show&quot;:0,&quot;ZBT&quot;:0,&quot;GTO&quot;:&quot;0.00040600&quot;,&quot;CREDO&quot;:&quot;0.00029900&quot;,&quot;XIN&quot;:&quot;0.67730100&quot;,&quot;BIG&quot;:&quot;0.00246600&quot;,&quot;PRS&quot;:&quot;0.00023800&quot;,&quot;CANDY&quot;:&quot;0.00000047&quot;,&quot;MTN&quot;:&quot;0.00015400&quot;,&quot;HOT&quot;:&quot;0.00007378&quot;,&quot;CAF&quot;:&quot;0.00002806&quot;,&quot;SGCC&quot;:&quot;0.00000533&quot;,&quot;CPU&quot;:&quot;0.00000588&quot;,&quot;SSP&quot;:&quot;0.00001274&quot;,&quot;LET&quot;:&quot;0.00005385&quot;,&quot;VCA&quot;:&quot;0.00006003&quot;,&quot;KCASH&quot;:&quot;0.00014145&quot;,&quot;RED&quot;:&quot;0.00015000&quot;,&quot;MUSK&quot;:&quot;0.00003781&quot;,&quot;LZL&quot;:&quot;0.00004000&quot;,&quot;ICC&quot;:&quot;0.00000066&quot;,&quot;PRA&quot;:&quot;0.00036600&quot;,&quot;LIGHT&quot;:&quot;0.00000195&quot;,&quot;BAI&quot;:&quot;0.00000306&quot;,&quot;LGC&quot;:&quot;0.00004000&quot;,&quot;ATOC&quot;:&quot;0.00000001&quot;,&quot;SRNT&quot;:0,&quot;BCO&quot;:&quot;0.00040000&quot;,&quot;NXO&quot;:&quot;0.00020000&quot;},&quot;bitCNY&quot;:{&quot;BTC&quot;:&quot;46458.00000000&quot;,&quot;ETH&quot;:&quot;3418.00000000&quot;,&quot;LTC&quot;:&quot;918.00000000&quot;,&quot;EOS&quot;:0},&quot;USC&quot;:{&quot;VCA&quot;:&quot;0.04090000&quot;,&quot;SSP&quot;:&quot;0.00830000&quot;,&quot;LET&quot;:&quot;0.03200000&quot;,&quot;KCASH&quot;:&quot;0.08710000&quot;,&quot;ETH&quot;:&quot;622.87000000&quot;}}">
+<input type="hidden" id="asset_exchange_rate" value="{&quot;BTC&quot;:[],&quot;ETH&quot;:{&quot;KK&quot;:&quot;0.00000536&quot;,&quot;EOS&quot;:&quot;0.00836600&quot;,&quot;PETS&quot;:&quot;0.00008000&quot;,&quot;FAIR&quot;:0,&quot;PLC&quot;:0,&quot;TIO&quot;:0,&quot;AAC&quot;:0,&quot;BIGE&quot;:0,&quot;BMB&quot;:0,&quot;COT&quot;:0,&quot;CPC&quot;:0,&quot;IBC&quot;:0,&quot;MVC&quot;:0,&quot;Show&quot;:0,&quot;ZBT&quot;:0,&quot;GTO&quot;:&quot;0.00040600&quot;,&quot;CREDO&quot;:&quot;0.00029900&quot;,&quot;XIN&quot;:&quot;0.67730100&quot;,&quot;BIG&quot;:&quot;0.00246600&quot;,&quot;PRS&quot;:&quot;0.00023800&quot;,&quot;CANDY&quot;:&quot;0.00000047&quot;,&quot;MTN&quot;:&quot;0.00015400&quot;,&quot;HOT&quot;:&quot;0.00007378&quot;,&quot;CAF&quot;:&quot;0.00002806&quot;,&quot;SGCC&quot;:&quot;0.00000533&quot;,&quot;CPU&quot;:&quot;0.00000588&quot;,&quot;SSP&quot;:&quot;0.00001274&quot;,&quot;LET&quot;:&quot;0.00005385&quot;,&quot;VCA&quot;:&quot;0.00006003&quot;,&quot;KCASH&quot;:&quot;0.00014145&quot;,&quot;RED&quot;:&quot;0.00015000&quot;,&quot;MUSK&quot;:&quot;0.00003781&quot;,&quot;LZL&quot;:&quot;0.00004000&quot;,&quot;ICC&quot;:&quot;0.00000066&quot;,&quot;PRA&quot;:&quot;0.00036600&quot;,&quot;LIGHT&quot;:&quot;0.00000195&quot;,&quot;BAI&quot;:&quot;0.00000306&quot;,&quot;LGC&quot;:&quot;0.00004000&quot;,&quot;ATOC&quot;:&quot;0.00000001&quot;,&quot;SRNT&quot;:0,&quot;BCO&quot;:&quot;0.00040000&quot;,&quot;NXO&quot;:&quot;0.00020000&quot;},&quot;bitCNY&quot;:{&quot;BTC&quot;:&quot;46458.00000000&quot;,&quot;ETH&quot;:&quot;3418.00000000&quot;,&quot;LTC&quot;:&quot;918.00000000&quot;,&quot;EOS&quot;:0},&quot;USC&quot;:{&quot;VCA&quot;:&quot;0.04090000&quot;,&quot;SSP&quot;:&quot;0.00830000&quot;,&quot;LET&quot;:&quot;0.03200000&quot;,&quot;KCASH&quot;:&quot;0.08710000&quot;,&quot;ETH&quot;:&quot;622.87000000&quot;}}">
+<input type="hidden" id="pairs_decimal" value="{&quot;KK_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;EOS_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;PETS_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;BTC_bitCNY&quot;:{&quot;amt_decimal&quot;:8,&quot;price_decimal&quot;:0,&quot;amount_decimal&quot;:8},&quot;ETH_bitCNY&quot;:{&quot;amt_decimal&quot;:6,&quot;price_decimal&quot;:2,&quot;amount_decimal&quot;:8},&quot;LTC_bitCNY&quot;:{&quot;amt_decimal&quot;:6,&quot;price_decimal&quot;:2,&quot;amount_decimal&quot;:8},&quot;FAIR_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;PLC_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;TIO_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;AAC_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;BIGE_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;BMB_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;COT_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;CPC_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;IBC_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;MVC_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;Show_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;ZBT_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;EOS_bitCNY&quot;:{&quot;amt_decimal&quot;:4,&quot;price_decimal&quot;:4,&quot;amount_decimal&quot;:8},&quot;GTO_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;CREDO_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;XIN_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;BIG_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;PRS_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;CANDY_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;MTN_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;HOT_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;CAF_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;SGCC_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;CPU_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;SSP_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;LET_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;VCA_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;KCASH_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;VCA_USC&quot;:{&quot;amt_decimal&quot;:4,&quot;price_decimal&quot;:4,&quot;amount_decimal&quot;:8},&quot;SSP_USC&quot;:{&quot;amt_decimal&quot;:4,&quot;price_decimal&quot;:4,&quot;amount_decimal&quot;:8},&quot;LET_USC&quot;:{&quot;amt_decimal&quot;:4,&quot;price_decimal&quot;:4,&quot;amount_decimal&quot;:8},&quot;KCASH_USC&quot;:{&quot;amt_decimal&quot;:4,&quot;price_decimal&quot;:4,&quot;amount_decimal&quot;:8},&quot;ETH_USC&quot;:{&quot;amt_decimal&quot;:4,&quot;price_decimal&quot;:2,&quot;amount_decimal&quot;:6},&quot;RED_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;MUSK_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;LZL_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;ICC_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;PRA_ETH&quot;:{&quot;amt_decimal&quot;:2,&quot;price_decimal&quot;:6,&quot;amount_decimal&quot;:8},&quot;LIGHT_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;BAI_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;LGC_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;ATOC_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;SRNT_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;BCO_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8},&quot;NXO_ETH&quot;:{&quot;amt_decimal&quot;:0,&quot;price_decimal&quot;:8,&quot;amount_decimal&quot;:8}}" />
+</div>
+</div>
+<div class="footerNavBar">
+<div class="wrapMain">
+<ul class="footerNav"> <!--footer部分-->
+	
+<li><a href="/about">关于我们</a></li>
+<li><a target="_blank" href="">服务协议</a></li>
+<li><a target="_blank" href="">隐私声明</a></li>
+<li><a href="/fee_intro">费率标准</a></li>
+<li><a href="" target="_blank">联系我们</a></li>
+<li><a href="" target="_blank">API文档</a></li>
+</ul>
+<div class="downApp"><a href="#" class="app">客户端下载</a>
+<p class="appHover">敬请期待！</p>
+</div>
+</div>
+</div>
+	<div class="footerBar">
+		<div class="wrapMain">
+			<!--页面尾部-->
+			<p class="fl">&copy; 2018 全息数字交易平台 All Rights Reserved</p>
+			<div class="shareBox">
+			<!--<a target="_blank" href="https://t.me/kkcoin" class="share_ico1" target="_blank">telegram</a>
+			<a target="_blank" href="https://twitter.com/kkcoinEX" class="share_ico3" target="_blank">twitter </a>-->
+			</div>
+			<div id="sVol_box" class="fr hide" style="padding-right:50px;">
+			<span class="white" style="display: inline-block;padding-right:5px;">24h成交量:</span>
+			<span id="sVol"></span>
+		</div>
+	</div>
+</div>
+
+<div class="popBox" id="google_blind_pop" style="width:590px;display: none;">
+<span class="closePopBt">X</span>
+<div class="prompt" style="margin-top: 45px;">
+<p><img src="https://www.kkcoin.com/images/newindex/warning.png" alt=""></p>
+<p class="promptTit red">为了您的账号安全，我们强烈建议您开启二次验证。</p>
+<a href="/google/authentication" class="verifyBtBar"><span class="google">请输入谷歌验证码</span></a>
+<div class="tr font12">我已知晓风险 <a href="javascript:void(0)" class="bt1 skipBt">暂不设置</a> <a href="/google/authentication" class="bt2 white">立即设置</a></div>
+</div>
+<div class="hr20"></div>
+</div>
+<script type="text/javascript" src="js/numeral.min.js"></script>
+
+
+<script async src="js/gtag.js"></script>
+<script type="text/javascript">
+    //谷歌统计start  上面还要加载googletagmanager
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-111174465-1');
+    //谷歌统计end
+</script>
+<script src="js/highcharts.js"></script>
+<script src="js/newindex.js"></script>
+<script>
+    $(function(){
+        $(document).on("click",".wrapMain .marketsTable tr:not(.theader)",function(event){
+            if($(event.target).is(".favoriteIco")){
+                return false;
+            }
+            window.location=$(this).find("td:eq(1) a").attr("href");
+        });
+        vol();
+    });
+    //focus
+    currentindex = 1;
+    countFocus = $('.focusList li').length;
+    function changeflash(i) {
+        i = i - 1;
+        for (var j = 0; j < countFocus; j++) {
+            if (j == i) {
+                $(".focusList li:eq(" + j + ")").fadeIn("normal");
+                $(".focusList li:eq(" + j + ")").css("display", "block");
+                $(".pagination a:eq(" + j + ")").addClass("curr");
+            } else {
+                $(".focusList li:eq(" + j + ")").css("display", "none");
+                $(".pagination a:eq(" + j + ")").removeClass("curr");
+            }
+        }
+    }
+
+    for (var num = 1; num <= countFocus; num++) {
+        if (num == 1) {
+            $(".pagination").append("<a class='curr'><span>" + num + "</span></a>");
+        } else {
+            $(".pagination").append("<a><span>" + num + "</span></a>");
+        }
+    }
+
+    $(".pagination a").on('click', function () {
+        var numOnclick = $(this).index() + 1;
+        changeflash(numOnclick)
+    })
+
+    $(".focusList li").mouseover(function () {
+        stopAm();
+    }).mouseout(function () {
+        startAm();
+    });
+    startAm();
+
+    function startAm(){timerID = setInterval("timer_tick()", 3000);}
+    function stopAm(){clearInterval(timerID);}
+    function timer_tick() {
+        currentindex = currentindex >= countFocus ? 1 : currentindex + 1;
+        changeflash(currentindex);
+    }
+    //---标签切换
+    $('.tabs').each(function(){
+        var it = $(this);
+        var menus = $('.t_menu li',it);
+        var conts = $('.t_cont',it);
+        menus.on('click',function(){
+            var _this = $(this);
+            if(_this.hasClass('cur')) return;
+            var _index = _this.index();
+            _this.addClass('cur').siblings().removeClass('cur');
+            conts.hide(0).eq(_index).stop().fadeIn();
+            search();
+        });
+    });
+    $(".searchBox .searchInput").focusin(function(){
+        $(this).parents(".searchBox").addClass("gold_border");
+    }).focusout(function(){
+        $(this).parents(".searchBox").removeClass("gold_border");
+    });
+
+    setInterval("vol()",3000);
+    function vol(){
+        var vol=[];
+        $(".marketsTable .t_cont:gt(0)").each(function(){
+            var table=$(this);
+            table.find("table tr:not(.theader)").each(function(){
+                var td=$(this).find("td:last");
+                var text=td.text();
+                var volume=td.find("span").text();
+                var symbol=$.trim(text.replace(volume,""));
+                if(vol[symbol]==undefined){
+                    vol[symbol]=0;
+                }
+                vol[symbol]=bcadd(vol[symbol],unFormatkkcoin(volume));
+            });
+        });
+        var html=[];
+        var isShow=true;
+        for(var item in vol){
+            if(vol[item]==0){
+                isShow=false;
+            }
+            html.push('<span class="sVol"><span class="vol white">'+formatkkcoin(vol[item])+'</span><span class="unit gray">'+item+'</span></span>');
+        }
+        if(isShow==true){
+            $("#sVol").html(html.join('<span class="sVol_hr">/</span>'));
+            $("#sVol_box").removeClass("hide");
+        }
+    }
+
+</script>
+</body>
+</html>

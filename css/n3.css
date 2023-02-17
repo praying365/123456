@@ -1,0 +1,228 @@
+html,body,div,ul,ul li,h1,h2,h3,h4,h5,h6,video,img,a,hr,p,footer {
+    	margin: 0;
+    	padding: 0;
+    	border: 0;
+    	font-family: "microsoft yahei";
+    	/*overflow: hidden;*/
+    	}
+ul li {
+	list-style: none;
+}
+body {
+	/*height: 3500px;*/
+	font-size: 12px;
+	width: 100%;
+	/*height: auto;*/
+	/*overflow: hidden;*/
+	
+}
+#section_header ul li a {
+			line-height: 38px;
+			font-size: 18px;
+		}
+		
+
+main  {
+	padding-bottom: 40px;
+	
+}
+
+/*banner内容*/
+main .banner {
+	/*width: 100%;
+	height: 400px;
+	background-image: url(../img/craftraft.png);
+	background-size: 100% 100%;
+	background-attachment:fixed;*/
+	/*opacity: .9;*/
+	
+}
+main .banner h2 {
+	padding-top:50px ;
+	font-size: 40px;
+	font-weight: 700;
+}
+
+main .text {
+	/*margin: 0 auto;*/
+	
+	text-align: center;
+	padding-bottom: 80px;
+}
+
+main .text h2 {
+	margin: 40px auto;
+	color: #080808;
+	font-size: 35px;
+}
+main .text p {
+	margin: auto 20%;
+	color: #080808;
+	font-size: 16px;
+}
+
+
+
+main .hr {
+	color: gray;
+	font-size: 18px;
+	padding-bottom: 60px;
+}
+
+main .hr hr {
+	margin: 0 auto;
+}
+
+/*特征*/
+main .con {
+	/*height: 400px;*/
+	/*text-align: center;*/
+	/*padding-bottom: 70px;*/
+	overflow: hidden;
+	
+}
+main .con img {
+	margin: 0 auto;
+	padding: 5%;
+	padding-bottom: 0;
+}
+
+/*main .con:hover {
+	background: chocolate;
+	color: #FFFFFF;
+}*/
+
+main .con .t {
+	padding: 10% 10%;
+	
+}
+main .con .t h3 {
+	font-size: 2.5em;
+	/*line-height: 50px;*/
+}
+
+main .row5 {
+	margin-bottom: 60px;
+}
+
+/*推荐产品*/
+main .price {
+	height: 350px;
+	text-align: center;
+	/*border: 1px solid #000000;*/
+}
+main .price img {
+	/*line-height: 350px;*/
+}
+
+main .price div:last-child {
+	padding-top: 3%;
+}
+main .add {
+	margin: 0 auto;
+	width: 90%;
+}
+main .add h3{
+	line-height: 70px;
+	font-family: 25px;
+}
+
+main .co {
+	margin-bottom: 40px;
+}
+main .co h4 {
+	font-size: 20px;
+	/*line-height: 30px;*/
+}
+main .co h4,.co p {
+	/*text-indent: 1em;
+	font-size: 20px;*/
+}
+main .co .co-img {
+	background: whitesmoke;
+	overflow: hidden;
+	padding: 10%;
+}
+/*移动*/
+main .co .co-img img:hover {
+	transition: all 1s ease;
+	transform: scale(1.05);
+}
+
+
+/*main .co .co-img img:hover {
+	transition: all 1s ease;
+	transform: scale(1.05);
+}*/
+/*复位*/
+main .co .co-img img {
+	transition: all 1s ease;
+	transform: scale(1);
+}
+
+
+
+footer {
+	clear: both;
+	/*position: fixed;*/
+	width: 100%;
+	margin: 0 auto;
+	background: #252a2c;
+	bottom: 0;
+	
+}
+
+.footer {
+	width: 85%;
+	color: #FFFFFF;
+	margin: 0 auto;
+	font-size: 12px;
+}
+.footer p a {
+	color: #FFF;
+}
+
+.footer p a:hover {
+	opacity: .7;
+}
+
+.footer .row {
+	padding-top: 40px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.footer .copy {
+	width: 100%;
+	height: 35px;
+	text-align: center;
+	bottom: 0;
+	font-size: 12px;
+	color: white;
+}
+
+
+main .dis {
+	display: none;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+	.row2 , .row4 {
+		/*display: none;*/
+	}
+	main .dis {
+		display: block;
+	}
+	main .ab {
+		display: none;
+	}
+	
+	main .con .t {
+	padding: 0 10%;
+}
+	main .con img {
+		margin-top: 30px;
+	}
+}

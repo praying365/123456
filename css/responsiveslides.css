@@ -1,0 +1,105 @@
+/*! http://responsiveslides.com v1.55 by @viljamis */
+
+/*大图*/
+.rslides {
+  /*position: relative;*/
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  /*min-width: 640px;*/
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+	
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  /*position: relative;*/
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+/*小图*/
+#slider3-pager {
+	border-top: 1px solid ghostwhite;
+	z-index: 33;
+	position: absolute;
+	width: 100%;
+	bottom: 1px;
+	margin-left: 20px;
+	margin:0 auto;
+}
+
+#slider3-pager img {
+	width: 50px;
+	height: 50px;
+}
+
+#slider3-pager li {
+	
+	padding: 10px;
+	float: left;
+}
+#slider3-pager li:first {
+	margin-left: 50px;
+}
+
+.rslides_here {
+	border: 1px solid #FFFFFF;
+	opacity: .7;
+}
+.slider-box {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	/*border: 1px solid #FF0000;*/
+}
+
+.box-text {
+	line-height: 2em;
+	font-size: 2em;
+	font-weight: 700;
+	z-index: 55;
+	position: absolute;
+	top: 24%;
+	right: 8%;
+	color: white;
+}
+.slider-minbox {
+	display: none;
+}
+
+
+@media screen and (max-width: 750px) {
+		.slider-box {
+			display: none;
+		}
+		
+		.slider-minbox {
+			display: block;
+			background: #00b8fc;
+			color: white;
+			font-weight: 700;
+		}
+		.swiper-slide img {
+			background: #00b8fc;
+		}
+}
+
+
+
